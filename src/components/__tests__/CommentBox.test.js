@@ -1,23 +1,24 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import CommentBox from 'components/CommentBox';;
+import Root from 'Root';
 
 let component;
 
 beforeEach(() => {
-  component = mount(<CommentBox />);
+  component = mount(<Root><CommentBox /></Root>);
 });
 
 afterEach(() => {
   component.unmount();
 });
 
-it('displays a text area and button', () => {
+it('displays a text area', () => {
   expect(component.find('textarea').length).toEqual(1);
 });
 
-it('displays a button', () => {
-  expect(component.find('button').length).toEqual(1);
+it('displays buttons', () => {
+  expect(component.find('button').length).toEqual(2);
 });
 
 describe('the text area', () => {
